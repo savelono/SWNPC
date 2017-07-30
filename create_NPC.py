@@ -1,14 +1,14 @@
 #!/bin/python3
 
 
-from npc2 import *
+from swnpc2 import *
 
 
 
 
 # example code 
 #        npc('name', 'species', 'career', 'NPC type')
-pirate = npc('Todd Spunkle-Dinker','human','pirate', 'nemesis')
+pirate = npc('Chewy','wookie','pirate', 'rival')
 
 
 
@@ -28,9 +28,6 @@ print("General Skills:   ", pirate.general_skills())
 print("Combat Skills:    ", pirate.combat_skills())
 print("Knowledge Skills: ", pirate.knowledge_skills())
 print("\n\n")
-
-
-
 
 
 
