@@ -1,33 +1,7 @@
 #!/bin/python3
 
+
 import random
-
-
-# species:[ [ Brawn, Agility, Intellect, Cunning, Willpower, Presence, Wound, Strain ],
-#           [ Wound threshhold modifier, Strain threshold modifer ], [ 'Additional species notes' ] ]
-abilities = { 'human' :[ [2,2,2,2,2,2,10,10], ['Brawn', 'Willpower'], [] ],
-              'keldor':[ [1,2,2,2,3,2,10,10], ['Brawn', 'Willpower'] ],
-              'arcona':[ [1,2,2,2,3,2,10,10], ['Brawn', 'Willpower'] ],
-              'gank'  :[ [2,2,2,2,2,2,10,10], ['Brawn', 'Willpower'] ],
-              'wookie':[ [4,2,2,2,1,2,14,12], ['Brawn', 'Willpower'] ] }
-
-
-# NPC class modifiers
-# {career: [ [ ability modifiers ], [ skills - gen, com, know ], [ equipment ], [ talent/bonus ] ]} 
-
-career = { 'pirate'       :[ [0,0,0,0,0,0,0,0], [2,3,1], ["Some equipment", "and some other equipment"], [] ], 
-           'trooper'      :[ [0,0,0,0,0,0,0,0], [3,3,1], ["Some equipment", "and some other equipment"], [] ],
-           'monk'         :[ [0,0,0,0,0,0,0,0], [3,3,1], ["Some equipment", "and some other equipment"], [] ],
-           'bounty hunter':[ [0,0,0,0,0,0,0,0], [3,3,1], ["Some equipment", "and some other equipment"], [] ] }
-
-
-# NPC type
-#                type     : [ ["notes and rules"], [characteristic modifiers], [bonus skills] ]
-
-type_rules = { 'minion'   : [ ["Does not suffer strain or posess skills.",  "They can fight as a group and be killed by crits."] ],
-               'rival'    : [ ["Will Die after exceeding wound threshold.", "Suffers wounds for strain."], [0,0,0,0,0,0,4,4], [1,0,0] ],
-               'nemesis'  : [ ["Standard Rules."], [1,1,1,1,1,1,8,8], [2,1,1] ] }
-
 
 
 
@@ -74,7 +48,59 @@ knowledge_skills = ( 'Core Worlds (Int)',
 
 
 
+# Pull equipment from this list and add to the career var
+equipment = [ 'Blaster dmg 6 cit 3, medium range, stun setting', 
+              'Heavy Blaster dmg 7 crit 3, medium range, stun setting',
+              'Knife: dmg +1 crit 3, engaged',
+              'Blaster Rfle: dmg 9 crit 3, long range, stun setting',
+              'Thermal Detonator: dmg 20 crit 2, short range, Blast 15, Breach 1, Vicious 4',
+              'Duel Light Blasters(per gun): dmg 5 crit 4, range medium',
+              'rope',
+              '500 credits',
+              '1000 credits' ]
 
+
+# Pull equipment from this list and add to the career var
+armor = [ 'Heavy Cloth:  def 0 soak 1 enc 1',
+          'Armored Cloth:  def 1 soak 1 enc 3',
+          'Laminate:  def 0 soak 2 enc 4',
+          'Heavy Environmental:  def 1 soak 3, enc 4',
+          'Heavy Battle:  def 1 soak 3 enc 6' ]
+
+
+#===================================================
+
+
+
+
+# species:[ [ Brawn, Agility, Intellect, Cunning, Willpower, Presence, Wound, Strain ],
+#           [ Wound threshhold modifier, Strain threshold modifer ], [ 'Additional species notes' ] ]
+abilities = { 'human'  :[ [2,2,2,2,2,2,10,10], ['Brawn', 'Willpower'], ['2 free non career skills'] ],
+              'kel dor':[ [1,2,2,2,3,2,10,10], ['Brawn', 'Willpower'], ['Dark Vision -2 Diff', 'Education 1 (int)'] ] }
+
+
+# NPC class modifiers
+# {career: [ [ ability modifiers ], [ skills - gen, com, know ], [ standard equipment ], [ # of items, random equipment ], 
+#          [ armor ], [ talent/bonus ] ]} 
+
+career = { 'pirate'       :[ [0,0,0,0,0,0,0,0], [2,1,0], [equipment[0]], [1, equipment], armor[1], ['+1 on Skullduggary attempts'] ], 
+           'trooper'      :[ [1,0,0,0,0,0,0,0], [1,3,0], [''], [''], armor[2], [''] ],
+           'monk'         :[ [0,0,0,0,0,1,0,0], [3,0,3], [''], [''], armor[0], [''] ],
+           'bounty hunter':[ [0,0,0,1,0,0,0,0], [1,2,0], [''], [''], armor[3], [''] ] }
+
+
+# NPC type
+#                type     : [ ["notes and rules"], [characteristic modifiers], [bonus skills] ]
+
+type_rules = { 'minion'   : [ ["Does not suffer strain or posess skills.",  "They can fight as a group and be killed by crits."],\
+                              [0,0,0,0,0,0,-6,0], [0,0,0]  ],
+               'rival'    : [ ["Will die after exceeding wound threshold.", "Suffers wounds for strain."], [0,0,0,0,0,0,4,4], [1,0,0] ],
+               'nemesis'  : [ ["Standard Rules."], [1,1,1,1,1,1,8,8], [2,1,1] ] }
+
+
+
+
+#====================================================
 
 
 class npc():
@@ -157,5 +183,20 @@ class npc():
 
     def rules(self):
         return type_rules[self.npc_type][0]
+
+#-----------------------------------------
+
+    def armor(self):
+        return career[self.npc_class][4]
+
+#-----------------------------------------
+
+    def equipment(self):
+        return career[self.npc_class][2] + random.sample(career[self.npc_class][3][1],career[self.npc_class][3][0])
+
+#-----------------------------------------
+
+    def talents(self):
+        return career[self.npc_class][5] + abilities[self.species][2]
 
 
