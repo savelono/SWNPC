@@ -75,8 +75,15 @@ armor = [ 'Heavy Cloth:  def 0 soak 1 enc 1',
 
 # species:[ [ Brawn, Agility, Intellect, Cunning, Willpower, Presence, Wound, Strain ],
 #           [ Wound threshhold modifier, Strain threshold modifer ], [ 'Additional species notes' ] ]
-abilities = { 'human'  :[ [2,2,2,2,2,2,10,10], ['Brawn', 'Willpower'], ['2 free non career skills'] ],
-              'kel dor':[ [1,2,2,2,3,2,10,10], ['Brawn', 'Willpower'], ['Dark Vision -2 Diff', 'Education 1 (int)'] ] }
+abilities = { 'arcona'              :[ [1,2,2,2,3,2,10,10], ['Brawn', 'Willpower'], ['1 Vigilance (Will), hot enviro, Mood Readers'] ],
+              'besalisk'            :[ [3,1,2,1,2,2,11, 8], ['Brawn', 'Willpower'], ['1 Resilience (Br), Additional Limbs'] ],              
+              'clawdite'            :[ [2,2,2,3,1,2,10,10], ['Brawn', 'Willpower'], ['1 Resilience (Br), Changling'] ],
+              'duros'               :[ [1,2,3,2,2,2,11,10], ['Brawn', 'Willpower'], ['1 Piloting - Space (Ag), Intuitive Naviagation Talent'] ],
+              'human - corelian'    :[ [2,2,2,2,2,2,10,10], ['Brawn', 'Willpower'], ['1 Piloting - Space (Ag) or Planetary (Ag) (may train to 3)'] ],
+              'human - Mandalorian' :[ [2,2,2,2,2,2,11,10], ['Brawn', 'Willpower'], ['1 combat skill or 1 in two Knowledge skills of choice'] ],
+              'hutt'                :[ [3,1,2,2,3,2,13,11], ['Brawn', 'Willpower'], ['1 Coercion or Discipline, 1 Enduring Talent'] ],
+              'jawa'                :[ [1,2,2,2,2,1, 6,10], ['Brawn', 'Willpower'], ['2 Computer (Int) or 2 Mechanics (Int), 1 Outer Rim (Int)'] ],
+              'kel dor'             :[ [1,2,2,2,3,2,10,10], ['Brawn', 'Willpower'], ['Dark Vision -2 Diff', 'Education 1 (int)'] ] }
 
 
 # NPC class modifiers
