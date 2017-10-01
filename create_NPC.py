@@ -8,7 +8,7 @@ from swnpc2 import *
 
 # example code 
 #        npc('name', 'species', 'career', 'NPC type')
-pirate = npc('Wu Tang Clan Member','human','pirate', 'minion')
+pirate = npc('Wu Tang Clan Member','human - corelian','pirate', 'minion')
 
 
 
