@@ -49,7 +49,8 @@ knowledge_skills = ( 'Core Worlds (Int)',
 
 
 # Pull equipment from this list and add to the career var
-equipment = [ 'Blaster dmg 6 cit 3, medium range, stun setting', 
+equipment = [ 'a pocket full of nothing..., '
+              'Blaster dmg 6 cit 3, medium range, stun setting', 
               'Heavy Blaster dmg 7 crit 3, medium range, stun setting',
               'Knife: dmg +1 crit 3, engaged',
               'Blaster Rfle: dmg 9 crit 3, long range, stun setting',
@@ -57,11 +58,12 @@ equipment = [ 'Blaster dmg 6 cit 3, medium range, stun setting',
               'Duel Light Blasters(per gun): dmg 5 crit 4, range medium',
               'rope',
               '500 credits',
-              '1000 credits' ]
+              '1000 credits', ]
 
 
 # Pull equipment from this list and add to the career var
-armor = [ 'Heavy Cloth:  def 0 soak 1 enc 1',
+armor = [ 'Normal clothing or uniform, '
+          'Heavy Cloth:  def 0 soak 1 enc 1',
           'Armored Cloth:  def 1 soak 1 enc 3',
           'Laminate:  def 0 soak 2 enc 4',
           'Heavy Environmental:  def 1 soak 3, enc 4',
@@ -78,8 +80,9 @@ armor = [ 'Heavy Cloth:  def 0 soak 1 enc 1',
 abilities = { 'arcona'              :[ [1,2,2,2,3,2,10,10], ['Brawn', 'Willpower'], ['1 Vigilance (Will), hot enviro, Mood Readers'] ],
               'besalisk'            :[ [3,1,2,1,2,2,11, 8], ['Brawn', 'Willpower'], ['1 Resilience (Br), Additional Limbs'] ],              
               'clawdite'            :[ [2,2,2,3,1,2,10,10], ['Brawn', 'Willpower'], ['1 Resilience (Br), Changling'] ],
+              'devaronian'          :[ [2,2,2,3,2,1,11,10], ['Brawn', 'Willpower'], ['1 Survival (Cun) or 1 Deception (Cun), 1 automatic success on Resilience checks'] ],
               'duros'               :[ [1,2,3,2,2,2,11,10], ['Brawn', 'Willpower'], ['1 Piloting - Space (Ag), Intuitive Naviagation Talent'] ],
-              'human - corelian'    :[ [2,2,2,2,2,2,10,10], ['Brawn', 'Willpower'], ['1 Piloting - Space (Ag) or Planetary (Ag) (may train to 3)'] ],
+              'human - Corelian'    :[ [2,2,2,2,2,2,10,10], ['Brawn', 'Willpower'], ['1 Piloting - Space (Ag) or Planetary (Ag) (may train to 3)'] ],
               'human - Mandalorian' :[ [2,2,2,2,2,2,11,10], ['Brawn', 'Willpower'], ['1 combat skill or 1 in two Knowledge skills of choice'] ],
               'hutt'                :[ [3,1,2,2,3,2,13,11], ['Brawn', 'Willpower'], ['1 Coercion or Discipline, 1 Enduring Talent'] ],
               'human'               :[ [2,2,2,2,2,2,10,10], ['Brawn', 'Willpower'], ['2 free non career skills'] ],
@@ -92,9 +95,9 @@ abilities = { 'arcona'              :[ [1,2,2,2,3,2,10,10], ['Brawn', 'Willpower
 #          [ armor ], [ talent/bonus ] ]} 
 
 career = { 'pirate'       :[ [0,0,0,0,0,0,0,0], [2,1,0], [equipment[0]], [1, equipment], armor[1], ['+1 on Skullduggary attempts'] ], 
-           'trooper'      :[ [1,0,0,0,0,0,0,0], [1,3,0], [''], [''], armor[2], [''] ],
-           'monk'         :[ [0,0,0,0,0,1,0,0], [3,0,3], [''], [''], armor[0], [''] ],
-           'bounty hunter':[ [0,0,0,1,0,0,0,0], [1,2,0], [''], [''], armor[3], [''] ] }
+           'trooper'      :[ [1,0,0,0,0,0,3,3], [1,3,0], [equipment[4]], [1, equipment], armor[4], [''] ],
+           'monk'         :[ [0,0,0,0,0,1,1,1], [3,0,3], [equipment[0]], [0, equipment], armor[1], ['Command Rank 2'] ],
+           'bounty hunter':[ [0,0,0,1,0,0,0,0], [1,2,0], [equipment[0]], [2, equipment], armor[2], [''] ]  }
 
 
 # NPC type
